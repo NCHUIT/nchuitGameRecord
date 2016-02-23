@@ -1,3 +1,13 @@
+/**
+ * Config
+ * DBPATH .... BJ4
+ */
+var DBPATH = 'mongodb://localhost/nchuitGameRecord';
+
+/**
+ * App
+ */
+
 var express = require('express');
 var app = express();
 
@@ -9,7 +19,7 @@ var _ = require('lodash');
 
 var bodyParser = require('body-parser');
 
-mongoose.connect('mongodb://localhost/nchuitGameRecord');
+mongoose.connect(DBPATH);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
