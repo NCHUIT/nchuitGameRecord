@@ -38,13 +38,21 @@ app.use(allowCrossDomain);
 
 app.get('/record/list', function (req, res) {
   Record.find({}).sort({time: 'asc'}).exec(function(err, list) {
-    if (err) { console.error(err)};
+    if (err) { 
+      res.status(400);
+      res.send(err);
+      res.end();
+    };
     res.json(list);
   })
 });
 app.get('/record/:id', function(req, res) {
   Record.findOne({ _id: req.params.id }, function(err, data){
-    if (err) { console.error(err)};
+    if (err) { 
+      res.status(400);
+      res.send(err);
+      res.end();
+    };
     res.json(data);
   });
 });
@@ -58,7 +66,11 @@ app.post('/record/new', function(req, res) {
   }
   var record = new Record(req.body);
   record.save(function(err, data) {
-    if (err) { console.error(err)};
+    if (err) { 
+      res.status(400);
+      res.send(err);
+      res.end();
+    };
     res.json({
       message: 'Record add success!',
       data: data
