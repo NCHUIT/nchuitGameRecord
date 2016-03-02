@@ -2,7 +2,7 @@
  * Config
  * DBPATH .... BJ4
  */
-var DBPATH = 'mongodb://localhost/nchuitGameRecord';
+var DBPATH = 'mongodb://db/nchuitGameRecord';
 
 /**
  * App
